@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express()
 const port = 3000
-const DB = 'mongodb+srv://nikhil123:nikhil123@clusterinstagram.ag6eshv.mongodb.net/?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://nikhil1234:nikhil1234@base1.fz8lbec.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose.connect(DB).then(()=>{
   console.log('connected');
