@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express()
 const port = 3000
-const DB = 'mongodb+srv://nikhil123:nikhil123@base1.fz8lbec.mongodb.net/test?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://nikhil123:nikhil123@base1.fz8lbec.mongodb.net/instagram?retryWrites=true&w=majority'
 
 mongoose.connect(DB).then(()=>{
   console.log('connected');
@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
     required:true
   }
 })
-const User  = mongoose.model('usercredential',userSchema);
+const User  = mongoose.model('users',userSchema);
 app.use(express.static(path.join(__dirname,'/instagramloginpage')))
 app.use(express.urlencoded({extended:false}))
 app.get('/', (req, res) => {
