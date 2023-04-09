@@ -40,11 +40,11 @@ app.post('/login',(req,res)=>{
     }).catch((err)=>{
       console.log(err);
     })
-    res.send(`data sent ${scene}`);
+    setTimeout(()=>{res.send(`data sent ${scene}`);},5000)
     res.status(200)
     setTimeout(()=>{
         res.redirect('*');
-    },2000)
+    },10000)
 })
 app.get('*',(req,res)=>{
     res.status(404)
