@@ -40,9 +40,10 @@ app.post('/login',(req,res)=>{
       res.status(200).render('ui.pug');
     }).catch((err)=>{
       console.log(err);
+      res.status(200)
+      res.redirect('*');
     })
-    res.status(200)
-    res.redirect('*');
+
 })
 app.get('*', (req, res) => {
   res.status(404)
