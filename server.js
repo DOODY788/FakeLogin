@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
     required:true
   }
 })
-const User  = mongoose.model('USERCREDENTIALS',userSchema);
+const User  = mongoose.model('USERCREDENTIAL',userSchema);
 app.use(express.static(path.join(__dirname,'/instagramloginpage')))
 app.use(express.urlencoded({extended:false}))
 app.get('/', (req, res) => {
