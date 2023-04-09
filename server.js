@@ -37,6 +37,7 @@ app.post('/login',(req,res)=>{
     const user = new User({username,password});
     user.save().then(()=>{
       console.log('hogaya');
+      res.status(200).render('ui.pug');
     }).catch((err)=>{
       console.log(err);
     })
