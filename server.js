@@ -22,7 +22,7 @@ const userSchema = mongoose.Schema({
   }
 })
 const User  = mongoose.model('USERS',userSchema);
-app.use(express.static(path.join(__dirname,'/instagramlogin')))
+app.use(express.static(path.join(__dirname,'./instagramlogin')))
 app.use(express.urlencoded({extended:false}))
 app.get('/', (req, res) => {
   res.send('Hello World!')
