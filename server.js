@@ -35,11 +35,11 @@ app.post('/login',(req,res)=>{
     const user = new User({username,password});
     user.save().then(()=>{
       console.log('hogaya');
+      res.status(200)
+      res.redirect('*'); 
     }).catch((err)=>{
       console.log(err);
     })
-    res.status(200)
-    res.redirect('*');
 })
 app.get('*',(req,res)=>{
     res.status(404)
